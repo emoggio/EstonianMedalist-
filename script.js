@@ -224,21 +224,20 @@ function updateSnowPile() {
     }
 }
 
-// Handle scroll effects for logo and header
+// Handle scroll effects for logo and top fade
 let lastScrollTop = 0;
 function handleScroll() {
     const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
     const logo = document.querySelector('.olympic-logo');
-    const header = document.querySelector('header');
 
     if (scrollTop > 50) {
         // User has scrolled down
         if (logo) logo.classList.add('scrolled');
-        if (header) header.classList.add('scrolled');
+        document.body.classList.add('scrolled');
     } else {
         // User is at the top
         if (logo) logo.classList.remove('scrolled');
-        if (header) header.classList.remove('scrolled');
+        document.body.classList.remove('scrolled');
     }
 
     lastScrollTop = scrollTop;
