@@ -439,7 +439,7 @@ footer {
 @media (max-width: 768px) {
     body {
         padding: 10px;
-        padding-top: 80px; /* Make space for the logo */
+        padding-top: 110px; /* Make space for the centered logo */
     }
 
     .container {
@@ -447,9 +447,11 @@ footer {
     }
 
     .olympic-logo {
-        width: 90px;
+        width: 100px;
         top: 10px;
-        right: 10px;
+        left: 50%;
+        right: auto;
+        transform: translateX(-50%);
     }
 
     .snowflake {
@@ -497,7 +499,7 @@ footer {
 
 @media (max-width: 480px) {
     body {
-        padding-top: 70px; /* Adjust space for smaller logo */
+        padding-top: 90px; /* Adjust space for smaller centered logo */
     }
 
     .main-question {
@@ -514,7 +516,7 @@ footer {
     }
 
     .olympic-logo {
-        width: 70px;
+        width: 80px;
     }
 
     .snowflake {
