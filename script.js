@@ -1,6 +1,21 @@
 // Track previous medal state for snowflake trigger
 let previousTotalMedals = 0;
 
+// Check if it's the last day of Olympics (Feb 22, 2026)
+function isLastDayOfOlympics() {
+    const now = new Date();
+    const lastDay = new Date('2026-02-22');
+
+    return now.getFullYear() === lastDay.getFullYear() &&
+           now.getMonth() === lastDay.getMonth() &&
+           now.getDate() === lastDay.getDate();
+}
+
+// Check if snowflakes should be active
+function shouldShowSnowflakes(medalCount) {
+    return medalCount > 0 || isLastDayOfOlympics();
+}
+
 // Load and display Olympic data
 async function loadData() {
     try {
@@ -19,8 +34,8 @@ async function loadData() {
             triggerSnowflakes();
         }
 
-        // Start or stop continuous snowflakes based on medal status
-        if (currentTotal > 0) {
+        // Start or stop continuous snowflakes based on medal status OR last day
+        if (shouldShowSnowflakes(currentTotal)) {
             startContinuousSnowflakes();
         } else {
             stopContinuousSnowflakes();
@@ -192,12 +207,12 @@ function updateSnowPile() {
 document.addEventListener('DOMContentLoaded', () => {
     loadData();
 
-    // Check on initial load if we have medals to show continuous snowflakes
+    // Check on initial load if we have medals OR if it's the last day
     fetch('data.json')
         .then(res => res.json())
         .then(data => {
             const total = data.medals.gold + data.medals.silver + data.medals.bronze;
-            if (total > 0) {
+            if (shouldShowSnowflakes(total)) {
                 // Start continuous snowflakes after a brief celebration
                 setTimeout(triggerSnowflakes, 500);
                 setTimeout(startContinuousSnowflakes, 4000); // Start continuous after initial burst
