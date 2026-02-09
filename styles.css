@@ -482,8 +482,9 @@ footer p {
 
 footer .credits {
     font-size: 0.85rem;
-    opacity: 0.85;
+    opacity: 1;
     margin-top: 10px;
+    font-weight: 500;
 }
 
 /* Mobile Responsive */
