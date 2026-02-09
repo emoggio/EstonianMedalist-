@@ -14,89 +14,108 @@
   "upcoming": [
     {
       "name": "Johanna Talihärm",
-      "sport": "Biathlon",
-      "datetime": "Feb 12, 2026 - 10:30 AM CET"
+      "sport": "Biathlon - Women's 15km Individual",
+      "datetime": "Feb 11, 2026 - 2:15 PM CET"
     },
     {
       "name": "Regina Ermits",
-      "sport": "Biathlon",
-      "datetime": "Feb 12, 2026 - 10:30 AM CET"
+      "sport": "Biathlon - Women's 15km Individual",
+      "datetime": "Feb 11, 2026 - 2:15 PM CET"
     },
     {
       "name": "Susan Kuelm",
-      "sport": "Biathlon"
+      "sport": "Biathlon - Women's 7.5km Sprint",
+      "datetime": "Feb 14, 2026 - 2:45 PM CET"
     },
     {
       "name": "Tuuli Tomingas",
-      "sport": "Biathlon"
+      "sport": "Biathlon - Women's Relay",
+      "datetime": "Feb 18, 2026 - 2:45 PM CET"
     },
     {
       "name": "Jakob Kulbin",
-      "sport": "Biathlon"
+      "sport": "Biathlon - Men's 20km Individual",
+      "datetime": "Feb 10, 2026 - 1:30 PM CET"
     },
     {
       "name": "Kristo Siimer",
-      "sport": "Biathlon"
+      "sport": "Biathlon - Men's 10km Sprint",
+      "datetime": "Feb 13, 2026 - 2:00 PM CET"
     },
     {
       "name": "Mark-Markos Kehva",
-      "sport": "Biathlon"
+      "sport": "Biathlon - Men's Relay",
+      "datetime": "Feb 17, 2026 - 2:30 PM CET"
     },
     {
       "name": "Rene Zahkna",
-      "sport": "Biathlon"
+      "sport": "Biathlon - Mixed Relay",
+      "datetime": "Feb 8, 2026 - 2:05 PM CET"
     },
     {
       "name": "Hanna Gret Teder",
-      "sport": "Alpine Skiing"
+      "sport": "Alpine Skiing - Women's Super G",
+      "datetime": "Feb 12, 2026 - 11:30 AM CET"
     },
     {
       "name": "Tormis Laine",
-      "sport": "Alpine Skiing"
+      "sport": "Alpine Skiing - Men's Downhill",
+      "datetime": "Feb 7, 2026 - 10:30 AM CET"
     },
     {
       "name": "Kelly Sildaru",
-      "sport": "Freestyle Skiing"
+      "sport": "Freestyle Skiing - Women's Halfpipe",
+      "datetime": "Feb 19, 2026 - 6:30 PM CET"
     },
     {
       "name": "Grete-Mia Meentalo",
-      "sport": "Freestyle Skiing"
+      "sport": "Freestyle Skiing - Women's Slopestyle",
+      "datetime": "Feb 7, 2026 - TBD"
     },
     {
       "name": "Henry Sildaru",
-      "sport": "Freestyle Skiing"
+      "sport": "Freestyle Skiing - Men's Halfpipe",
+      "datetime": "Feb 20, 2026 - TBD"
     },
     {
       "name": "Kaidy Kaasiku",
-      "sport": "Cross-Country Skiing"
+      "sport": "Cross-Country - Women's 20km Skiathlon",
+      "datetime": "Feb 7, 2026 - TBD"
     },
     {
       "name": "Keidy Kaasiku",
-      "sport": "Cross-Country Skiing"
+      "sport": "Cross-Country - Women's 10km Freestyle",
+      "datetime": "Feb 12, 2026 - TBD"
     },
     {
       "name": "Mariel Merlii Pulles",
-      "sport": "Cross-Country Skiing"
+      "sport": "Cross-Country - Women's Sprint",
+      "datetime": "Feb 10, 2026 - TBD"
     },
     {
       "name": "Teesi Tuul",
-      "sport": "Cross-Country Skiing"
+      "sport": "Cross-Country - Women's Relay",
+      "datetime": "Feb 14, 2026 - TBD"
     },
     {
       "name": "Teiloora Ojaste",
-      "sport": "Cross-Country Skiing"
+      "sport": "Cross-Country - Women's 50km Classic",
+      "datetime": "Feb 22, 2026 - TBD"
     },
     {
       "name": "Alvar Johannes Alev",
-      "sport": "Cross-Country Skiing"
+      "sport": "Cross-Country - Men's Skiathlon",
+      "datetime": "Feb 8, 2026 - 11:30 AM CET"
     },
     {
       "name": "Karl Sebastian Dremljuga",
-      "sport": "Cross-Country Skiing"
+      "sport": "Cross-Country - Men's 10km Freestyle",
+      "datetime": "Feb 13, 2026 - TBD"
     },
     {
       "name": "Martin Himma",
-      "sport": "Cross-Country Skiing"
+      "sport": "Cross-Country - Men's 50km Classic",
+      "datetime": "Feb 21, 2026 - TBD"
     }
   ]
 }
