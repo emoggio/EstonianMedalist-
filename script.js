@@ -176,6 +176,10 @@ function startContinuousSnowflakes() {
 
     // Reset pile height when starting
     snowPileHeight = 0;
+    const pileElement = document.getElementById('snowPile');
+    if (pileElement) {
+        pileElement.classList.add('active'); // Make pile visible
+    }
     updateSnowPile();
 
     // Create a snowflake every 200ms continuously
@@ -196,6 +200,8 @@ function stopContinuousSnowflakes() {
         snowflakeInterval = null;
     }
 
+    const pileElement = document.getElementById('snowPile');
+
     // Slowly melt the pile
     const meltInterval = setInterval(() => {
         if (snowPileHeight > 0) {
@@ -203,6 +209,10 @@ function stopContinuousSnowflakes() {
             updateSnowPile();
         } else {
             clearInterval(meltInterval);
+            // Hide pile when completely melted
+            if (pileElement) {
+                pileElement.classList.remove('active');
+            }
         }
     }, 50);
 }

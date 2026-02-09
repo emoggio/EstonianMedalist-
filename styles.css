@@ -199,9 +199,14 @@ header::before {
     background: linear-gradient(to top, rgba(255, 255, 255, 0.9), rgba(255, 255, 255, 0.7), transparent);
     z-index: 9998;
     pointer-events: none;
-    transition: height 0.5s ease-out;
+    transition: height 0.5s ease-out, opacity 0.3s ease-out;
     border-radius: 50% 50% 0 0 / 20px 20px 0 0;
     box-shadow: 0 -5px 20px rgba(255, 255, 255, 0.5);
+    opacity: 0; /* Hidden by default */
+}
+
+.snow-pile.active {
+    opacity: 1; /* Visible when active */
 }
 
 /* Individual snowflakes in the pile */
@@ -439,7 +444,7 @@ footer {
 @media (max-width: 768px) {
     body {
         padding: 10px;
-        padding-top: 120px; /* Make space for the centered logo */
+        padding-top: 130px; /* Make space for the centered logo */
     }
 
     .container {
@@ -504,7 +509,7 @@ footer {
 
 @media (max-width: 480px) {
     body {
-        padding-top: 100px; /* Adjust space for smaller centered logo */
+        padding-top: 110px; /* Adjust space for smaller centered logo */
     }
 
     .main-question {
