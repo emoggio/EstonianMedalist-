@@ -27,7 +27,7 @@
 
 body {
     font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
-    background: linear-gradient(135deg, var(--cortina-blue) 0%, var(--cortina-light-blue) 50%, var(--cortina-ice) 100%);
+    background: linear-gradient(135deg, var(--estonia-blue) 0%, var(--cortina-light-blue) 50%, var(--cortina-ice) 100%);
     color: var(--text-dark);
     min-height: 100vh;
     padding: 20px;
@@ -118,7 +118,7 @@ header::before {
 
 .main-question {
     font-size: 2rem;
-    background: linear-gradient(135deg, var(--cortina-blue), var(--cortina-red));
+    background: linear-gradient(135deg, var(--estonia-blue), var(--estonia-black));
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
@@ -142,8 +142,8 @@ header::before {
 
 .answer.no {
     background: linear-gradient(135deg, var(--cortina-ice) 0%, var(--cortina-snow) 100%);
-    color: var(--cortina-blue);
-    border: 3px solid var(--cortina-blue);
+    color: var(--estonia-blue);
+    border: 3px solid var(--estonia-blue);
 }
 
 .answer.yes {
@@ -209,7 +209,7 @@ main {
 }
 
 .section:hover {
-    border-color: var(--cortina-red);
+    border-color: var(--estonia-blue);
     transform: translateY(-2px);
 }
 
@@ -227,7 +227,7 @@ main {
 }
 
 .section h2 {
-    background: linear-gradient(135deg, var(--cortina-blue), var(--cortina-red));
+    background: linear-gradient(135deg, var(--estonia-blue), var(--estonia-black));
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
@@ -235,13 +235,13 @@ main {
     margin-bottom: 20px;
     padding-bottom: 15px;
     border-bottom: 3px solid;
-    border-image: linear-gradient(90deg, var(--cortina-red), var(--cortina-blue)) 1;
+    border-image: linear-gradient(90deg, var(--estonia-blue), var(--cortina-light-blue)) 1;
     font-style: italic;
 }
 
 /* Medal Counter */
 .medal-section {
-    background: linear-gradient(135deg, var(--cortina-blue) 0%, var(--cortina-red) 100%);
+    background: linear-gradient(135deg, var(--estonia-blue) 0%, var(--estonia-black) 100%);
     border: none;
 }
 
@@ -353,6 +353,25 @@ main {
     font-size: 1rem;
     color: var(--text-dark);
     opacity: 0.75;
+}
+
+.athlete-result {
+    font-size: 0.95rem;
+    color: var(--cortina-blue);
+    margin-top: 8px;
+    font-weight: 600;
+    padding: 6px 12px;
+    background: rgba(21, 101, 192, 0.1);
+    border-radius: 8px;
+    display: inline-block;
+}
+
+.athlete-datetime {
+    font-size: 0.9rem;
+    color: var(--cortina-red);
+    margin-top: 8px;
+    font-weight: 500;
+    opacity: 0.9;
 }
 
 .medal-badge {

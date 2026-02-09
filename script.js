@@ -61,6 +61,7 @@ function updateCompletedEvents(athletes) {
                 ${athlete.medal ? `<span class="medal-badge">${getMedalEmoji(athlete.medal)}</span>` : ''}
             </div>
             <div class="athlete-sport">${athlete.sport}</div>
+            ${athlete.result ? `<div class="athlete-result">${athlete.result}</div>` : ''}
         </div>
     `).join('');
 }
@@ -78,6 +79,7 @@ function updateUpcomingEvents(athletes) {
         <div class="athlete-card">
             <div class="athlete-name">${athlete.name}</div>
             <div class="athlete-sport">${athlete.sport}</div>
+            ${athlete.datetime ? `<div class="athlete-datetime">📅 ${athlete.datetime}</div>` : ''}
         </div>
     `).join('');
 }

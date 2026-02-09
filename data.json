@@ -7,17 +7,20 @@
   "completed": [
     {
       "name": "Marie Kaldvee & Harri Lill",
-      "sport": "Curling - Mixed Doubles"
+      "sport": "Curling - Mixed Doubles",
+      "result": "8th place (2 wins, 4 losses)"
     }
   ],
   "upcoming": [
     {
       "name": "Johanna Talihärm",
-      "sport": "Biathlon"
+      "sport": "Biathlon",
+      "datetime": "Feb 12, 2026 - 10:30 AM CET"
     },
     {
       "name": "Regina Ermits",
-      "sport": "Biathlon"
+      "sport": "Biathlon",
+      "datetime": "Feb 12, 2026 - 10:30 AM CET"
     },
     {
       "name": "Susan Kuelm",
