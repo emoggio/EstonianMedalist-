@@ -439,6 +439,11 @@ footer {
 @media (max-width: 768px) {
     body {
         padding: 10px;
+        padding-top: 80px; /* Make space for the logo */
+    }
+
+    .container {
+        margin-top: 0;
     }
 
     .olympic-logo {
@@ -491,6 +496,10 @@ footer {
 }
 
 @media (max-width: 480px) {
+    body {
+        padding-top: 70px; /* Adjust space for smaller logo */
+    }
+
     .main-question {
         font-size: 1.2rem;
     }
