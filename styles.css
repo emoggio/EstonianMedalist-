@@ -63,12 +63,18 @@ body::before {
     right: 20px;
     width: 120px;
     z-index: 1000;
-    transition: transform 0.3s ease;
+    transition: width 0.3s ease, top 0.3s ease, transform 0.3s ease, filter 0.3s ease;
     filter: drop-shadow(0 4px 15px rgba(0, 0, 0, 0.15));
 }
 
 .olympic-logo:hover {
     transform: scale(1.05);
+}
+
+.olympic-logo.scrolled {
+    width: 60px;
+    top: 10px;
+    filter: drop-shadow(0 2px 8px rgba(0, 0, 0, 0.1));
 }
 
 .olympic-logo img {
@@ -87,6 +93,11 @@ header {
     margin-bottom: 30px;
     position: relative;
     overflow: hidden;
+    transition: opacity 0.3s ease;
+}
+
+header.scrolled {
+    opacity: 0.7;
 }
 
 /* Curved accent line - Milano Cortina "Vibes" style */
@@ -457,11 +468,16 @@ footer {
         left: 50%;
         right: auto;
         transform: translateX(-50%);
-        transition: none; /* Disable transitions on mobile */
+        transition: width 0.3s ease, top 0.3s ease, filter 0.3s ease;
     }
 
     .olympic-logo:hover {
         transform: translateX(-50%); /* Keep centered, no scale effect */
+    }
+
+    .olympic-logo.scrolled {
+        width: 50px;
+        top: 5px;
     }
 
     .snowflake {
@@ -527,6 +543,10 @@ footer {
 
     .olympic-logo {
         width: 80px;
+    }
+
+    .olympic-logo.scrolled {
+        width: 40px;
     }
 
     .olympic-logo:hover {

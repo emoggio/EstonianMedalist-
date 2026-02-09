@@ -224,9 +224,32 @@ function updateSnowPile() {
     }
 }
 
+// Handle scroll effects for logo and header
+let lastScrollTop = 0;
+function handleScroll() {
+    const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+    const logo = document.querySelector('.olympic-logo');
+    const header = document.querySelector('header');
+
+    if (scrollTop > 50) {
+        // User has scrolled down
+        if (logo) logo.classList.add('scrolled');
+        if (header) header.classList.add('scrolled');
+    } else {
+        // User is at the top
+        if (logo) logo.classList.remove('scrolled');
+        if (header) header.classList.remove('scrolled');
+    }
+
+    lastScrollTop = scrollTop;
+}
+
 // Load data when page loads
 document.addEventListener('DOMContentLoaded', () => {
     loadData();
+
+    // Add scroll listener
+    window.addEventListener('scroll', handleScroll, { passive: true });
 
     // Check on initial load if we have medals OR if it's the last day
     fetch('data.json')
