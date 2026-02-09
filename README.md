@@ -16,12 +16,28 @@ A minimal, mobile-friendly website to track Estonia's performance at the Cortina
 
 This website uses GitHub Actions to automatically fetch and update Estonia's Olympic results every 3 hours. The scraper runs in the cloud and commits changes when new results are available.
 
+### What Gets Auto-Updated
+
+✅ **Medal Counts** - Automatically scraped from Olympics.com every 3 hours
+- Gold, silver, bronze totals update automatically
+- Triggers snowflake effect when new medals are won
+
+### What Needs Manual Updates
+
+📝 **Athlete Data** - Requires manual updates to `data.json`:
+- Moving athletes from "upcoming" to "completed"
+- Adding competition results
+- Updating event schedules
+
+**Why?** Olympics.com uses dynamic JavaScript rendering, making athlete data difficult to reliably scrape. Medal counts are more stable and update automatically.
+
 ### How It Works
 
 1. **GitHub Actions Workflow** (`.github/workflows/update-results.yml`) runs every 3 hours
-2. **Python Scraper** (`scraper.py`) fetches data from Olympics.com
-3. **Auto-commit**: If medal counts or results change, the bot commits to your repository
-4. **GitHub Pages**: Your site automatically updates with the latest data
+2. **Python Scraper** (`scraper.py`) fetches medal counts from Olympics.com
+3. **Smart Merging**: Updates medals, preserves your manually curated athlete data
+4. **Auto-commit**: If medal counts change, the bot commits to your repository
+5. **GitHub Pages**: Your site automatically updates with the latest data
 
 ### Manual Trigger
 
@@ -31,21 +47,19 @@ You can manually trigger an update:
 3. Select "Update Estonia Olympic Results" workflow
 4. Click "Run workflow"
 
-## How to Update Data Manually
+## How to Update Athlete Data Manually
 
-Edit the `data.json` file to update the information:
+When Estonian athletes compete, update `data.json` on GitHub:
 
-### Example: Adding Medals
-```json
-{
-  "medals": {
-    "gold": 1,
-    "silver": 2,
-    "bronze": 1
-  },
-  ...
-}
-```
+### Moving Athletes from Upcoming to Completed
+
+1. Go to your repository: `https://github.com/YOUR_USERNAME/EstonianMedalist-`
+2. Click on `data.json`
+3. Click the pencil icon (Edit)
+4. Move the athlete object from `"upcoming"` to `"completed"`
+5. Add a `"result"` field with their placement
+6. Add a `"medal"` field if they won (gold/silver/bronze)
+7. Commit changes
 
 ### Example: Adding Completed Events
 ```json
