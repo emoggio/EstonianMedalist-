@@ -334,11 +334,28 @@ main {
 .athlete-card {
     background: linear-gradient(135deg, var(--cortina-ice) 0%, var(--cortina-white) 100%);
     padding: 20px;
+    padding-left: 25px;
     border-radius: 15px;
-    border-left: 5px solid var(--cortina-blue);
-    transition: transform 0.2s ease, box-shadow 0.2s ease, border-left-width 0.2s ease;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
     position: relative;
     overflow: hidden;
+}
+
+/* Left gradient border */
+.athlete-card::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    width: 5px;
+    background: linear-gradient(to bottom, var(--cortina-blue), var(--estonia-black));
+    border-radius: 15px 0 0 15px;
+    transition: width 0.2s ease;
+}
+
+.athlete-card:hover::before {
+    width: 8px;
 }
 
 .athlete-card::after {
@@ -356,33 +373,41 @@ main {
 .athlete-card:hover {
     transform: translateX(8px);
     box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
-    border-left-width: 8px;
 }
 
 .athlete-card:hover::after {
     right: -100%;
 }
 
-.athlete-card.medal {
-    border-left-width: 6px;
+.athlete-card.medal::before {
+    width: 6px;
 }
 
 .athlete-card.gold {
-    border-left-color: #FFD700;
     background: linear-gradient(135deg, #fffef0 0%, #FFF9E6 100%);
     box-shadow: 0 4px 15px rgba(255, 215, 0, 0.3);
 }
 
+.athlete-card.gold::before {
+    background: linear-gradient(to bottom, #FFD700, #B8860B);
+}
+
 .athlete-card.silver {
-    border-left-color: #C0C0C0;
     background: linear-gradient(135deg, #f8f8f8 0%, #E8E8E8 100%);
     box-shadow: 0 4px 15px rgba(192, 192, 192, 0.3);
 }
 
+.athlete-card.silver::before {
+    background: linear-gradient(to bottom, #C0C0C0, #808080);
+}
+
 .athlete-card.bronze {
-    border-left-color: #CD7F32;
     background: linear-gradient(135deg, #fff5ed 0%, #FFE8D6 100%);
     box-shadow: 0 4px 15px rgba(205, 127, 50, 0.3);
+}
+
+.athlete-card.bronze::before {
+    background: linear-gradient(to bottom, #CD7F32, #8B4513);
 }
 
 .athlete-name {
