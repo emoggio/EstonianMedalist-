@@ -19,6 +19,13 @@ async function loadData() {
             triggerSnowflakes();
         }
 
+        // Start or stop continuous snowflakes based on medal status
+        if (currentTotal > 0) {
+            startContinuousSnowflakes();
+        } else {
+            stopContinuousSnowflakes();
+        }
+
         previousTotalMedals = currentTotal;
     } catch (error) {
         console.error('Error loading data:', error);
@@ -132,18 +139,68 @@ function triggerSnowflakes() {
     }
 }
 
+// Continuous snowflake effect when medals exist
+let snowflakeInterval = null;
+let snowPileHeight = 0;
+const MAX_PILE_HEIGHT = 120; // Maximum pile height in pixels
+
+function startContinuousSnowflakes() {
+    // Don't start if already running
+    if (snowflakeInterval) return;
+
+    // Reset pile height when starting
+    snowPileHeight = 0;
+    updateSnowPile();
+
+    // Create a snowflake every 200ms continuously
+    snowflakeInterval = setInterval(() => {
+        createSnowflake();
+
+        // Gradually increase pile height (slower accumulation)
+        if (snowPileHeight < MAX_PILE_HEIGHT) {
+            snowPileHeight += 0.3; // Grow by 0.3px per snowflake
+            updateSnowPile();
+        }
+    }, 200);
+}
+
+function stopContinuousSnowflakes() {
+    if (snowflakeInterval) {
+        clearInterval(snowflakeInterval);
+        snowflakeInterval = null;
+    }
+
+    // Slowly melt the pile
+    const meltInterval = setInterval(() => {
+        if (snowPileHeight > 0) {
+            snowPileHeight -= 2;
+            updateSnowPile();
+        } else {
+            clearInterval(meltInterval);
+        }
+    }, 50);
+}
+
+function updateSnowPile() {
+    const pileElement = document.getElementById('snowPile');
+    if (pileElement) {
+        pileElement.style.height = `${Math.max(0, snowPileHeight)}px`;
+    }
+}
+
 // Load data when page loads
 document.addEventListener('DOMContentLoaded', () => {
     loadData();
 
-    // Also check on initial load if we have medals to show snowflakes
+    // Check on initial load if we have medals to show continuous snowflakes
     fetch('data.json')
         .then(res => res.json())
         .then(data => {
             const total = data.medals.gold + data.medals.silver + data.medals.bronze;
             if (total > 0) {
-                // Small delay then trigger celebration
+                // Start continuous snowflakes after a brief celebration
                 setTimeout(triggerSnowflakes, 500);
+                setTimeout(startContinuousSnowflakes, 4000); // Start continuous after initial burst
             }
         })
         .catch(err => console.error('Error checking initial medals:', err));

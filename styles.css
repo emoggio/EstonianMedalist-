@@ -191,6 +191,36 @@ header::before {
     }
 }
 
+/* Snow pile at bottom of viewport */
+.snow-pile {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 0;
+    background: linear-gradient(to top, rgba(255, 255, 255, 0.9), rgba(255, 255, 255, 0.7), transparent);
+    z-index: 9998;
+    pointer-events: none;
+    transition: height 0.5s ease-out;
+    border-radius: 50% 50% 0 0 / 20px 20px 0 0;
+    box-shadow: 0 -5px 20px rgba(255, 255, 255, 0.5);
+}
+
+/* Individual snowflakes in the pile */
+.snow-pile::before {
+    content: '❄ ❅ ❆ ❄ ❅ ❆ ❄ ❅ ❆ ❄ ❅ ❆ ❄ ❅ ❆';
+    position: absolute;
+    top: -15px;
+    left: 0;
+    right: 0;
+    text-align: center;
+    font-size: 1.2rem;
+    color: rgba(255, 255, 255, 0.9);
+    letter-spacing: 15px;
+    opacity: 0.8;
+    text-shadow: 0 0 10px rgba(255, 255, 255, 0.8);
+}
+
 /* Main Content */
 main {
     display: grid;
