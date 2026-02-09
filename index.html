@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Estonia at Cortina 2026</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- Estonian Flag -->
+    <div class="estonian-flag">
+        <div class="flag-stripe flag-blue"></div>
+        <div class="flag-stripe flag-black"></div>
+        <div class="flag-stripe flag-white"></div>
+    </div>
+
+    <div class="container">
+        <header>
+            <h1 class="main-question">Has Estonia won any medals yet?</h1>
+            <div class="answer" id="answer">No</div>
+        </header>
+
+        <main>
+            <!-- Medal Counter -->
+            <section class="section medal-section">
+                <h2>Medal Counter</h2>
+                <div class="medal-counter" id="medalCounter">
+                    <div class="medal-item">
+                        <span class="medal-icon gold">🥇</span>
+                        <span class="medal-count" id="goldCount">0</span>
+                    </div>
+                    <div class="medal-item">
+                        <span class="medal-icon silver">🥈</span>
+                        <span class="medal-count" id="silverCount">0</span>
+                    </div>
+                    <div class="medal-item">
+                        <span class="medal-icon bronze">🥉</span>
+                        <span class="medal-count" id="bronzeCount">0</span>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Completed Events -->
+            <section class="section">
+                <h2>Completed Events</h2>
+                <div class="athlete-list" id="completedList">
+                    <p class="empty-message">No completed events yet</p>
+                </div>
+            </section>
+
+            <!-- Upcoming Events -->
+            <section class="section">
+                <h2>Upcoming Events</h2>
+                <div class="athlete-list" id="upcomingList">
+                    <p class="empty-message">No upcoming events</p>
+                </div>
+            </section>
+        </main>
+
+        <footer>
+            <p>Cortina 2026 | Estonia</p>
+        </footer>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

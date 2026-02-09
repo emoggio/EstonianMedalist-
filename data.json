@@ -1,0 +1,99 @@
+{
+  "medals": {
+    "gold": 0,
+    "silver": 0,
+    "bronze": 0
+  },
+  "completed": [
+    {
+      "name": "Marie Kaldvee & Harri Lill",
+      "sport": "Curling - Mixed Doubles"
+    }
+  ],
+  "upcoming": [
+    {
+      "name": "Johanna Talihärm",
+      "sport": "Biathlon"
+    },
+    {
+      "name": "Regina Ermits",
+      "sport": "Biathlon"
+    },
+    {
+      "name": "Susan Kuelm",
+      "sport": "Biathlon"
+    },
+    {
+      "name": "Tuuli Tomingas",
+      "sport": "Biathlon"
+    },
+    {
+      "name": "Jakob Kulbin",
+      "sport": "Biathlon"
+    },
+    {
+      "name": "Kristo Siimer",
+      "sport": "Biathlon"
+    },
+    {
+      "name": "Mark-Markos Kehva",
+      "sport": "Biathlon"
+    },
+    {
+      "name": "Rene Zahkna",
+      "sport": "Biathlon"
+    },
+    {
+      "name": "Hanna Gret Teder",
+      "sport": "Alpine Skiing"
+    },
+    {
+      "name": "Tormis Laine",
+      "sport": "Alpine Skiing"
+    },
+    {
+      "name": "Kelly Sildaru",
+      "sport": "Freestyle Skiing"
+    },
+    {
+      "name": "Grete-Mia Meentalo",
+      "sport": "Freestyle Skiing"
+    },
+    {
+      "name": "Henry Sildaru",
+      "sport": "Freestyle Skiing"
+    },
+    {
+      "name": "Kaidy Kaasiku",
+      "sport": "Cross-Country Skiing"
+    },
+    {
+      "name": "Keidy Kaasiku",
+      "sport": "Cross-Country Skiing"
+    },
+    {
+      "name": "Mariel Merlii Pulles",
+      "sport": "Cross-Country Skiing"
+    },
+    {
+      "name": "Teesi Tuul",
+      "sport": "Cross-Country Skiing"
+    },
+    {
+      "name": "Teiloora Ojaste",
+      "sport": "Cross-Country Skiing"
+    },
+    {
+      "name": "Alvar Johannes Alev",
+      "sport": "Cross-Country Skiing"
+    },
+    {
+      "name": "Karl Sebastian Dremljuga",
+      "sport": "Cross-Country Skiing"
+    },
+    {
+      "name": "Martin Himma",
+      "sport": "Cross-Country Skiing"
+    }
+  ]
+}
