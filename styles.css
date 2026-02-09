@@ -111,7 +111,7 @@ header::before {
     left: -50px;
     right: -50px;
     height: 150px;
-    background: linear-gradient(135deg, var(--cortina-red) 0%, var(--cortina-vibrant-red) 100%);
+    background: linear-gradient(135deg, var(--estonia-blue) 0%, var(--cortina-light-blue) 100%);
     clip-path: path('M 0 100 Q 250 50, 500 75 T 1000 100 L 1000 0 L 0 0 Z');
     opacity: 0.1;
 }
@@ -147,10 +147,10 @@ header::before {
 }
 
 .answer.yes {
-    background: linear-gradient(135deg, #FFD700 0%, var(--cortina-vibrant-red) 100%);
+    background: linear-gradient(135deg, #FFD700 0%, var(--estonia-blue) 100%);
     color: var(--cortina-white);
     animation: pulse 2s infinite, glow 2s ease-in-out infinite;
-    box-shadow: 0 0 30px rgba(211, 47, 47, 0.5);
+    box-shadow: 0 0 30px rgba(0, 114, 206, 0.5);
 }
 
 @keyframes pulse {
@@ -164,10 +164,10 @@ header::before {
 
 @keyframes glow {
     0%, 100% {
-        box-shadow: 0 0 30px rgba(211, 47, 47, 0.5);
+        box-shadow: 0 0 30px rgba(0, 114, 206, 0.5);
     }
     50% {
-        box-shadow: 0 0 50px rgba(211, 47, 47, 0.8);
+        box-shadow: 0 0 50px rgba(0, 114, 206, 0.8);
     }
 }
 
@@ -221,7 +221,7 @@ main {
     right: -20px;
     width: 150px;
     height: 150px;
-    background: linear-gradient(135deg, var(--cortina-red), var(--cortina-vibrant-red));
+    background: linear-gradient(135deg, var(--estonia-blue), var(--cortina-light-blue));
     border-radius: 50%;
     opacity: 0.05;
 }
@@ -368,7 +368,7 @@ main {
 
 .athlete-datetime {
     font-size: 0.9rem;
-    color: var(--cortina-red);
+    color: var(--estonia-blue);
     margin-top: 8px;
     font-weight: 500;
     opacity: 0.9;
