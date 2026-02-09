@@ -25,3 +25,8 @@ desktop.ini
 
 # Local testing
 test_output.json
+
+# Claude Code
+.claude/
+*.local.md
+.claude_history
