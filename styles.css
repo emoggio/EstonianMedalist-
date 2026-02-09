@@ -56,39 +56,25 @@ body::before {
     z-index: 1;
 }
 
-/* Estonian Flag */
-.estonian-flag {
+/* Olympic Logo */
+.olympic-logo {
     position: fixed;
     top: 20px;
     right: 20px;
-    width: 80px;
-    height: 50px;
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
-    border-radius: 6px;
-    overflow: hidden;
+    width: 120px;
     z-index: 1000;
     transition: transform 0.3s ease;
+    filter: drop-shadow(0 4px 15px rgba(0, 0, 0, 0.15));
 }
 
-.estonian-flag:hover {
-    transform: scale(1.1);
+.olympic-logo:hover {
+    transform: scale(1.05);
 }
 
-.flag-stripe {
+.olympic-logo img {
     width: 100%;
-    height: 33.33%;
-}
-
-.flag-blue {
-    background: var(--estonia-blue);
-}
-
-.flag-black {
-    background: var(--estonia-black);
-}
-
-.flag-white {
-    background: var(--estonia-white);
+    height: auto;
+    display: block;
 }
 
 /* Header */
@@ -176,12 +162,24 @@ header::before {
     position: fixed;
     top: -10px;
     color: var(--cortina-white);
-    font-size: 1.5rem;
-    opacity: 0.8;
+    font-size: 1.8rem;
+    opacity: 0.95;
     pointer-events: none;
     z-index: 9999;
-    animation: fall linear forwards;
-    text-shadow: 0 0 5px rgba(255, 255, 255, 0.8);
+    animation: fall linear forwards, sparkle 3s ease-in-out infinite;
+    text-shadow:
+        0 0 8px rgba(255, 255, 255, 0.9),
+        0 0 15px rgba(173, 216, 230, 0.6),
+        0 0 20px rgba(135, 206, 250, 0.4);
+}
+
+@keyframes sparkle {
+    0%, 100% {
+        filter: brightness(1);
+    }
+    50% {
+        filter: brightness(1.4) hue-rotate(10deg);
+    }
 }
 
 @keyframes fall {
@@ -443,11 +441,14 @@ footer {
         padding: 10px;
     }
 
-    .estonian-flag {
-        width: 60px;
-        height: 37px;
+    .olympic-logo {
+        width: 90px;
         top: 10px;
         right: 10px;
+    }
+
+    .snowflake {
+        font-size: 1.5rem;
     }
 
     .main-question {
@@ -503,8 +504,15 @@ footer {
         padding: 30px 15px;
     }
 
-    .estonian-flag {
-        width: 50px;
-        height: 31px;
+    .olympic-logo {
+        width: 70px;
+    }
+
+    .snowflake {
+        font-size: 1.3rem;
+        text-shadow:
+            0 0 10px rgba(255, 255, 255, 1),
+            0 0 18px rgba(173, 216, 230, 0.8),
+            0 0 25px rgba(135, 206, 250, 0.6);
     }
 }

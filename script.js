@@ -133,6 +133,17 @@ function createSnowflake() {
     const duration = Math.random() * 3 + 4; // 4 to 7 seconds
     snowflake.style.animationDuration = duration + 's';
 
+    // Add random color tint for sparkle effect
+    const colors = [
+        'rgba(255, 255, 255, 0.95)',           // Pure white
+        'rgba(173, 216, 230, 0.95)',           // Light blue
+        'rgba(135, 206, 250, 0.95)',           // Sky blue
+        'rgba(224, 255, 255, 0.95)',           // Light cyan
+        'rgba(240, 248, 255, 0.95)'            // Alice blue
+    ];
+    const randomColor = colors[Math.floor(Math.random() * colors.length)];
+    snowflake.style.color = randomColor;
+
     document.body.appendChild(snowflake);
 
     // Remove snowflake after animation completes
