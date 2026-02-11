@@ -10,34 +10,37 @@ A minimal, mobile-friendly website to track Estonia's performance at the Cortina
 - **Upcoming Events**: Shows athletes yet to compete
 - **Cortina 2026 Design**: Uses the official color scheme (blues, whites, ice tones)
 - **Mobile Responsive**: Works perfectly on all devices
-- **Automated Updates**: GitHub Actions automatically scrapes Olympics.com every 3 hours
+- **Manual Updates**: Update `data.json` on GitHub to add results (automated scraping currently blocked)
 
-## Automated Updates
+## Automated Updates (Currently Limited)
 
-This website uses GitHub Actions to automatically fetch and update Estonia's Olympic results every 3 hours. The scraper runs in the cloud and commits changes when new results are available.
+⚠️ **Important**: Olympics.com is currently blocking automated scraping (403 Forbidden). Until this is resolved, all updates must be done manually.
 
 ### What Gets Auto-Updated
 
-✅ **Medal Counts** - Automatically scraped from Olympics.com every 3 hours
-- Gold, silver, bronze totals update automatically
-- Triggers snowflake effect when new medals are won
+❌ **Medal Counts** - Currently blocked by Olympics.com anti-scraping measures
+- Scraper runs every 3 hours but cannot access data
+- Will automatically resume when access is restored
 
 ### What Needs Manual Updates
 
-📝 **Athlete Data** - Requires manual updates to `data.json`:
+📝 **All Data** - Currently requires manual updates to `data.json`:
+- Medal counts (gold, silver, bronze)
 - Moving athletes from "upcoming" to "completed"
 - Adding competition results
 - Updating event schedules
 
-**Why?** Olympics.com uses dynamic JavaScript rendering, making athlete data difficult to reliably scrape. Medal counts are more stable and update automatically.
+**Why?** Olympics.com is actively blocking automated access with 403 Forbidden errors. This is common for high-traffic events. We're monitoring the situation and the scraper will automatically resume when access is restored.
 
-### How It Works
+### How It Works (When Scraping is Available)
 
 1. **GitHub Actions Workflow** (`.github/workflows/update-results.yml`) runs every 3 hours
-2. **Python Scraper** (`scraper.py`) fetches medal counts from Olympics.com
-3. **Smart Merging**: Updates medals, preserves your manually curated athlete data
-4. **Auto-commit**: If medal counts change, the bot commits to your repository
+2. **Python Scraper** (`scraper.py`) attempts to fetch medal counts from Olympics.com
+3. **Smart Merging**: Updates medals when available, preserves your manually curated athlete data
+4. **Auto-commit**: If data changes, the bot commits to your repository
 5. **GitHub Pages**: Your site automatically updates with the latest data
+
+**Current Status**: Scraper runs but Olympics.com blocks access. Data must be manually updated.
 
 ### Manual Trigger
 
@@ -47,9 +50,27 @@ You can manually trigger an update:
 3. Select "Update Estonia Olympic Results" workflow
 4. Click "Run workflow"
 
-## How to Update Athlete Data Manually
+## How to Update Data Manually
 
-When Estonian athletes compete, update `data.json` on GitHub:
+When Estonian athletes compete or win medals, update `data.json` on GitHub:
+
+### Quick Update Link
+
+🔗 **Direct edit link**: `https://github.com/emoggio/EstonianMedalist-/edit/main/data.json`
+
+### Updating Medal Counts
+
+1. Go to [data.json](https://github.com/emoggio/EstonianMedalist-/edit/main/data.json)
+2. Update the `medals` section:
+   ```json
+   "medals": {
+     "gold": 0,
+     "silver": 0,
+     "bronze": 0
+   }
+   ```
+3. Commit changes
+4. Site updates in 1-2 minutes
 
 ### Moving Athletes from Upcoming to Completed
 
