@@ -24,8 +24,8 @@ jobs:
         python -m pip install --upgrade pip
         pip install requests beautifulsoup4 lxml
 
-    - name: Run scraper
-      run: python scraper.py
+    - name: Run ERR scraper
+      run: python scraper_err.py
 
     - name: Check for changes
       id: verify-changed-files

@@ -12,35 +12,43 @@ A minimal, mobile-friendly website to track Estonia's performance at the Cortina
 - **Mobile Responsive**: Works perfectly on all devices
 - **Manual Updates**: Update `data.json` on GitHub to add results (automated scraping currently blocked)
 
-## Automated Updates (Currently Limited)
+## Automated Updates
 
-⚠️ **Important**: Olympics.com is currently blocking automated scraping (403 Forbidden). Until this is resolved, all updates must be done manually.
+✅ **Now Using ERR (Estonian Public Broadcasting) as Data Source**
+
+The scraper now uses ERR's RSS feed and Olympics coverage instead of Olympics.com, providing reliable automatic updates!
 
 ### What Gets Auto-Updated
 
-❌ **Medal Counts** - Currently blocked by Olympics.com anti-scraping measures
-- Scraper runs every 3 hours but cannot access data
-- Will automatically resume when access is restored
+✅ **Medal Detection** - Automatically monitors ERR's RSS feed for Estonian medal wins
+- Scraper runs every 3 hours checking ERR's sports RSS feed
+- Detects medal mentions in Estonian Olympics articles
+- Updates when Estonia wins medals
+
+⚠️ **Semi-Automated Athlete Results** - Scraper detects results in headlines
+- Identifies competition results from ERR articles
+- Prints found results to workflow logs
+- Requires manual review for accuracy
 
 ### What Needs Manual Updates
 
-📝 **All Data** - Currently requires manual updates to `data.json`:
-- Medal counts (gold, silver, bronze)
+📝 **Athlete Details** - Requires manual updates to `data.json`:
 - Moving athletes from "upcoming" to "completed"
-- Adding competition results
-- Updating event schedules
+- Adding specific competition results and placements
+- Updating event schedules if changed
 
-**Why?** Olympics.com is actively blocking automated access with 403 Forbidden errors. This is common for high-traffic events. We're monitoring the situation and the scraper will automatically resume when access is restored.
+**Data Source**: [ERR Sport](https://sport.err.ee/k/om2026) - Estonian Public Broadcasting's official Olympics coverage with RSS feed access.
 
-### How It Works (When Scraping is Available)
+### How It Works
 
 1. **GitHub Actions Workflow** (`.github/workflows/update-results.yml`) runs every 3 hours
-2. **Python Scraper** (`scraper.py`) attempts to fetch medal counts from Olympics.com
-3. **Smart Merging**: Updates medals when available, preserves your manually curated athlete data
-4. **Auto-commit**: If data changes, the bot commits to your repository
-5. **GitHub Pages**: Your site automatically updates with the latest data
+2. **ERR RSS Scraper** (`scraper_err.py`) fetches ERR's sports RSS feed (https://sport.err.ee/rss)
+3. **Smart Detection**: Scans recent articles for Estonian medal wins and athlete results
+4. **Medal Updates**: Automatically updates medal counts when Estonia wins
+5. **Auto-commit**: If medals change, the bot commits to your repository
+6. **GitHub Pages**: Your site automatically updates with the latest data
 
-**Current Status**: Scraper runs but Olympics.com blocks access. Data must be manually updated.
+**Data Source**: ERR (Eesti Rahvusringhääling) - Estonia's national public broadcasting company with comprehensive Olympics coverage.
 
 ### Manual Trigger
 
