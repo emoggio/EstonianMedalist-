@@ -9,21 +9,31 @@
       "name": "Marie Kaldvee & Harri Lill",
       "sport": "Curling - Mixed Doubles",
       "result": "8th place (2 wins, 4 losses)"
-    }
-  ],
-  "upcoming": [
+    },
     {
-      "name": "Johanna Talihärm",
+      "name": "Susan Külm",
       "sport": "Biathlon - Women's 15km Individual",
-      "datetime": "Feb 11, 2026 - 2:15 PM CET"
+      "result": "28th place (1 missed shot, +3:27.5) - Estonia's best Olympic biathlon result!"
     },
     {
       "name": "Regina Ermits",
       "sport": "Biathlon - Women's 15km Individual",
-      "datetime": "Feb 11, 2026 - 2:15 PM CET"
+      "result": "50th place (2 missed shots, +5:03.0)"
     },
     {
-      "name": "Susan Kuelm",
+      "name": "Tuuli Tomingas",
+      "sport": "Biathlon - Women's 15km Individual",
+      "result": "57th place (4 missed shots, +5:39.1)"
+    },
+    {
+      "name": "Johanna Talihärm",
+      "sport": "Biathlon - Women's 15km Individual",
+      "result": "74th place (3 missed shots, +7:46.2)"
+    }
+  ],
+  "upcoming": [
+    {
+      "name": "Susan Külm",
       "sport": "Biathlon - Women's 7.5km Sprint",
       "datetime": "Feb 14, 2026 - 2:45 PM CET"
     },
