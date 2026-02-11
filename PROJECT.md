@@ -11,8 +11,9 @@ A mobile-friendly website tracking Estonia's performance at Milano Cortina 2026 
 - Estonian flag colors theme (blue, black, white)
 - Continuous snowfall effect when medals are won
 - Growing snow pile at bottom of viewport
-- Automated medal count updates every 3 hours
+- **Automated updates every 1 hour via ERR (Estonian Public Broadcasting)**
 - Competition schedules with dates/times
+- Dual data source: ERR RSS feed + ERR Olympics page
 
 ## File Structure
 
@@ -22,10 +23,11 @@ Olympics/
 ├── styles.css              # Estonian-themed styling + snowfall effects
 ├── script.js               # Data loading + snowfall logic
 ├── data.json              # Olympic data (medals, athletes, schedules)
-├── scraper.py             # Python scraper for auto-updates
+├── scraper_err.py         # ERR-based scraper (ACTIVE - runs hourly)
+├── scraper.py             # Old Olympics.com scraper (DEPRECATED - blocked)
 ├── requirements.txt       # Python dependencies
 ├── .github/workflows/
-│   └── update-results.yml # GitHub Actions workflow (runs every 3 hours)
+│   └── update-results.yml # GitHub Actions workflow (runs every 1 hour)
 ├── README.md              # User documentation
 ├── SETUP.md               # Deployment guide
 └── PROJECT.md             # This file (technical documentation)
@@ -41,7 +43,7 @@ Olympics/
 ### 2. Medal Counter
 - Displays 🥇 🥈 🥉 with counts
 - Blue-to-black gradient background (Estonian colors)
-- Auto-updates from scraper every 3 hours
+- Auto-updates from ERR scraper every 1 hour
 
 ### 3. Athlete Lists
 
@@ -78,10 +80,12 @@ Olympics/
 - Glowing white effect
 - Melts away if medals go to 0
 
-### 5. Estonian Flag
-- Fixed position top-right corner
-- Three horizontal stripes (blue, black, white)
-- Hover effect: scales to 1.1x
+### 5. Olympic Logo
+- Milano Cortina 2026 official logo
+- Fixed position top-right corner (desktop) or centered top (mobile)
+- Shrinks on scroll for less obstruction
+- Blue fade overlay behind logo when scrolling (75px height)
+- Hover effect: slight scale up (desktop only)
 
 ### 6. Color Scheme
 - **Estonian blue**: `#0072CE` (flag color)
@@ -120,30 +124,54 @@ Olympics/
 
 ## Automated Updates
 
+### Data Source: ERR (Estonian Public Broadcasting)
+- **Primary**: ERR RSS Feed - https://sport.err.ee/rss
+- **Secondary**: ERR Olympics Page - https://sport.err.ee/k/om2026
+- **Reason**: Olympics.com blocks automated scraping (403 Forbidden)
+
 ### What Auto-Updates
-✅ **Medal counts** - Scraped every 3 hours from Olympics.com
+✅ **Medal Detection** - Monitors ERR RSS feed every 1 hour
+- Scans ~39 Olympics articles in RSS feed
+- Parses ~25 Estonian athlete items from Olympics page
+- Detects Estonian medal wins from article headlines
+- Updates medal counts automatically
+
+⚠️ **Result Detection** (Semi-Automatic)
+- Identifies athlete placements from headlines (e.g., "28th place")
+- Logs results to GitHub Actions workflow
+- Requires manual verification and data.json update
 
 ### What Requires Manual Updates
-📝 **Athlete data**:
+📝 **Athlete Details**:
 - Moving athletes from "upcoming" to "completed"
-- Adding competition results
-- Updating schedules (if needed)
+- Adding specific competition results and placements
+- Updating event schedules if changed
 
 ### GitHub Actions Workflow
-- **Schedule**: Runs every 3 hours via cron: `0 */3 * * *`
+- **Schedule**: Runs every 1 hour via cron: `0 * * * *`
 - **Manual trigger**: Available via Actions tab
 - **Process**:
-  1. Runs `scraper.py`
-  2. Fetches medal counts from Olympics.com
-  3. Preserves manually curated athlete data
-  4. Commits changes if medals updated
-  5. GitHub Pages auto-deploys (1-2 minutes)
+  1. Runs `scraper_err.py`
+  2. Fetches ERR RSS feed (39+ Olympics articles)
+  3. Parses ERR Olympics page (25+ Estonian items)
+  4. Scans for Estonian athlete names and keywords
+  5. Detects medal wins and result placements
+  6. Updates data.json if medals found
+  7. Commits changes
+  8. GitHub Pages auto-deploys (1-2 minutes)
 
 ### Scraper Behavior
-- **URL**: `https://www.olympics.com/en/milano-cortina-2026/medals/est`
-- **Strategy**: Multiple parsing strategies (table cells, specific elements, table structure)
-- **Reliability**: Medal counts are stable; athlete data is JavaScript-rendered (unreliable to scrape)
-- **Fallback**: If scraping fails, preserves existing data
+- **Script**: `scraper_err.py` (active)
+- **URLs**:
+  - RSS Feed: https://sport.err.ee/rss
+  - Olympics Page: https://sport.err.ee/k/om2026
+- **Strategy**:
+  - Dual data source (RSS + Olympics page)
+  - Estonian athlete name detection (21 names + keywords)
+  - Medal keyword matching (Estonian + English)
+  - Result pattern extraction (placement, DNF, etc.)
+- **Reliability**: ERR is accessible and Estonian-focused
+- **Fallback**: Preserves existing data if fetching fails
 
 ## How to Update Data Manually
 
@@ -200,15 +228,21 @@ taskkill /F /IM python.exe
 # Or Ctrl+C in the terminal
 ```
 
-## Estonian Athlete Data (32 athletes, 11 sports)
+## Estonian Athlete Data (21 athletes tracked)
 
 ### Curling (2) - COMPLETED
 - Marie Kaldvee & Harri Lill - Mixed Doubles (8th place, 2-4 record)
 
 ### Biathlon (8) - Anterselva Arena
-- Women: Johanna Talihärm, Regina Ermits, Susan Kuelm, Tuuli Tomingas
+**COMPLETED - Women's 15km Individual (Feb 11, 2026):**
+- Susan Külm: 28th place (1 missed shot) - **Estonia's best Olympic biathlon result!**
+- Regina Ermits: 50th place (2 missed shots)
+- Tuuli Tomingas: 57th place (4 missed shots)
+- Johanna Talihärm: 74th place (3 missed shots)
+
+**UPCOMING:**
 - Men: Jakob Kulbin, Kristo Siimer, Mark-Markos Kehva, Rene Zahkna
-- Events: Feb 8-21, 2026
+- Additional women's events for Külm and Tomingas
 
 ### Alpine Skiing (2)
 - Women: Hanna Gret Teder
@@ -349,7 +383,7 @@ git commit -m "Your message"
 git push origin main
 
 # Test scraper locally
-python scraper.py
+python scraper_err.py
 
 # Check git status
 git status
@@ -371,6 +405,45 @@ Already in `.gitignore`:
 - `__pycache__/` - Python cache
 - `*.pyc` - Python compiled files
 
+## Recent Updates (Feb 11, 2026)
+
+### Major Changes
+1. **Switched to ERR Data Source**
+   - Olympics.com blocked automated scraping (403 Forbidden)
+   - Now using ERR (Estonian Public Broadcasting) RSS feed + Olympics page
+   - More reliable and Estonian-focused coverage
+
+2. **Increased Scraper Frequency**
+   - Changed from every 3 hours → every 1 hour
+   - Faster updates during competitions
+   - Better chance of catching results quickly
+
+3. **Enhanced Scraper (scraper_err.py)**
+   - Dual data source: RSS feed (39 articles) + Olympics page (25 items)
+   - Estonian athlete name detection (21 names + keywords)
+   - Medal win detection (Estonian + English keywords)
+   - Result placement extraction
+   - Logs findings to GitHub Actions for review
+
+4. **UI Improvements**
+   - Blue fade overlay behind logo reduced from 150px to 75px
+   - Less obtrusive scroll effect
+   - Logo shrinks on scroll for better visibility
+
+### Current Status
+- **Medals**: 0 gold, 0 silver, 0 bronze
+- **Completed Events**: 5 (1 curling + 4 biathlon)
+- **Upcoming Events**: 19 athletes across multiple sports
+- **Automation**: Working via ERR, running hourly
+- **Data Sources**: ERR RSS + ERR Olympics page
+- **Last Manual Update**: Feb 11, 2026 (biathlon results)
+
+### Known Issues Resolved
+✅ Olympics.com blocking → Switched to ERR
+✅ Slow updates (3 hours) → Now 1 hour
+✅ No Olympics page parsing → Added dual source
+✅ Large fade overlay → Reduced 50%
+
 ## End of Olympics (After Feb 22, 2026)
 
 ### Archive Steps
@@ -387,6 +460,8 @@ Edit `.github/workflows/update-results.yml`:
 
 ---
 
-**Last Updated**: February 9, 2026
+**Last Updated**: February 11, 2026
 **Status**: Active - Olympics in progress
+**Data Source**: ERR (Estonian Public Broadcasting)
+**Automation**: Hourly updates via scraper_err.py
 **Next Review**: After February 22, 2026

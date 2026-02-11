@@ -41,14 +41,17 @@ The scraper now uses ERR's RSS feed and Olympics coverage instead of Olympics.co
 
 ### How It Works
 
-1. **GitHub Actions Workflow** (`.github/workflows/update-results.yml`) runs every 3 hours
+1. **GitHub Actions Workflow** (`.github/workflows/update-results.yml`) runs every 1 hour
 2. **ERR RSS Scraper** (`scraper_err.py`) fetches ERR's sports RSS feed (https://sport.err.ee/rss)
-3. **Smart Detection**: Scans recent articles for Estonian medal wins and athlete results
-4. **Medal Updates**: Automatically updates medal counts when Estonia wins
-5. **Auto-commit**: If medals change, the bot commits to your repository
-6. **GitHub Pages**: Your site automatically updates with the latest data
+3. **ERR Olympics Page Parser**: Also parses https://sport.err.ee/k/om2026 for additional coverage
+4. **Smart Detection**: Scans ~39 RSS articles + ~25 Olympics page items for Estonian results
+5. **Medal Updates**: Automatically updates medal counts when Estonia wins
+6. **Auto-commit**: If medals change, the bot commits to your repository
+7. **GitHub Pages**: Your site automatically updates with the latest data
 
 **Data Source**: ERR (Eesti Rahvusringhääling) - Estonia's national public broadcasting company with comprehensive Olympics coverage.
+
+**Update Frequency**: Every hour (60 checks per day for rapid results)
 
 ### Manual Trigger
 
