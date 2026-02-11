@@ -142,32 +142,65 @@ def extract_athlete_result(text, title):
     return None
 
 def parse_olympics_page():
-    """Parse ERR Olympics dedicated page"""
+    """Parse ERR Olympics dedicated page for detailed results"""
     print("Fetching ERR Olympics page...")
     page_content = fetch_url(ERR_OLYMPICS_PAGE)
 
     if not page_content:
-        return None
+        return []
 
     try:
         soup = BeautifulSoup(page_content, 'lxml')
 
-        # Look for medal table or medal information
-        medal_info = {}
+        results = []
 
-        # Extract articles and structured data
-        articles = soup.find_all('article', class_=re.compile(r'article|news'))
+        # Find all article links and headlines
+        articles = soup.find_all(['article', 'h2', 'h3', 'a'], class_=re.compile(r'article|headline|title|link'))
 
-        print(f"Found {len(articles)} articles on Olympics page")
+        for article in articles:
+            try:
+                # Get article text and link
+                text = article.get_text(strip=True)
+                link = article.get('href', '')
 
-        return {
-            'articles': len(articles),
-            'page_title': soup.title.string if soup.title else None
-        }
+                # Ensure full URL
+                if link and not link.startswith('http'):
+                    link = f"https://sport.err.ee{link}"
+
+                # Skip if too short
+                if len(text) < 10:
+                    continue
+
+                # Check for Estonian athlete names or keywords
+                estonian_markers = ['eesti', 'külm', 'külm', 'ermits', 'talihärm', 'tomingas',
+                                   'ilves', 'kulbin', 'sildaru', 'siimer', 'kehva', 'zahkna',
+                                   'teder', 'laine', 'meentalo', 'kaasiku', 'pulles', 'tuul',
+                                   'ojaste', 'alev', 'dremljuga', 'himma', 'kaldvee', 'lill',
+                                   'selevko', 'liiv', 'zunte', 'aigro']
+
+                has_estonian = any(marker in text.lower() for marker in estonian_markers)
+
+                if has_estonian:
+                    # Extract result information
+                    result_info = {
+                        'text': text,
+                        'link': link,
+                        'placement': extract_athlete_result(text, text),
+                        'medals': extract_medal_info(text)
+                    }
+
+                    results.append(result_info)
+                    print(f"Found Estonian content: {text[:80]}...")
+
+            except Exception as e:
+                continue
+
+        print(f"Extracted {len(results)} Estonian-related items from Olympics page")
+        return results
 
     except Exception as e:
         print(f"Error parsing Olympics page: {e}")
-        return None
+        return []
 
 def update_data_from_err():
     """Main function to update data from ERR sources"""
@@ -231,19 +264,45 @@ def update_data_from_err():
             print(f"  - {update['article']}: {update['result']}")
             print(f"    Link: {update['link']}")
 
-    # Parse Olympics page for additional context
-    page_data = parse_olympics_page()
+    # Parse Olympics page for additional context and results
+    print("\n" + "="*60)
+    olympics_page_results = parse_olympics_page()
+
+    if olympics_page_results:
+        print(f"\nProcessing {len(olympics_page_results)} items from Olympics page...")
+
+        # Check for additional medal info
+        for item in olympics_page_results:
+            item_medals = item.get('medals', {})
+            for medal_type in ['gold', 'silver', 'bronze']:
+                if item_medals.get(medal_type, 0) > 0:
+                    print(f"Found {medal_type} medal mention: {item['text'][:100]}")
+                    total_medals[medal_type] += item_medals[medal_type]
+
+            # Log any placement info found
+            if item.get('placement'):
+                print(f"  Result found: {item['placement']} - {item['link']}")
+
+        # Update medals if new ones found
+        if sum(total_medals.values()) > sum(current_data['medals'].values()):
+            print("\nNEW MEDALS DETECTED from Olympics page!")
+            current_data['medals'] = total_medals
 
     # Write updated data
     with open('data.json', 'w', encoding='utf-8') as f:
         json.dump(current_data, f, indent=2, ensure_ascii=False)
 
-    print(f"\nUpdate complete!")
+    print("\n" + "="*60)
+    print(f"Update complete!")
     print(f"Total medals: {sum(current_data['medals'].values())}")
     print(f"Athletes: {len(current_data.get('completed', []))} completed, "
           f"{len(current_data.get('upcoming', []))} upcoming")
-    print("\nNote: For detailed athlete updates, please manually review ERR articles and update data.json")
-    print("ERR Olympics coverage: https://sport.err.ee/k/om2026")
+    print("\nData sources checked:")
+    print(f"  - ERR RSS Feed: {len(articles)} Olympics articles")
+    print(f"  - ERR Olympics Page: {len(olympics_page_results)} Estonian items")
+    print("\nFor detailed results, see:")
+    print("  ERR Olympics: https://sport.err.ee/k/om2026")
+    print("  ERR RSS: https://sport.err.ee/rss")
 
 if __name__ == "__main__":
     update_data_from_err()

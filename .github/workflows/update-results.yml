@@ -2,8 +2,8 @@ name: Update Estonia Olympic Results
 
 on:
   schedule:
-    # Run every 3 hours during the Olympics
-    - cron: '0 */3 * * *'
+    # Run every hour during the Olympics for faster updates
+    - cron: '0 * * * *'
   workflow_dispatch: # Allow manual trigger
 
 jobs:
