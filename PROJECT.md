@@ -11,9 +11,9 @@ A mobile-friendly website tracking Estonia's performance at Milano Cortina 2026 
 - Estonian flag colors theme (blue, black, white)
 - Continuous snowfall effect when medals are won
 - Growing snow pile at bottom of viewport
-- **Automated updates every 1 hour via ERR (Estonian Public Broadcasting)**
+- **Automated updates every 1 hour via Wikipedia**
 - Competition schedules with dates/times
-- Dual data source: ERR RSS feed + ERR Olympics page
+- Primary data source: Wikipedia (Estonia at the 2026 Winter Olympics)
 
 ## File Structure
 
@@ -23,7 +23,8 @@ Olympics/
 ├── styles.css              # Estonian-themed styling + snowfall effects
 ├── script.js               # Data loading + snowfall logic
 ├── data.json              # Olympic data (medals, athletes, schedules)
-├── scraper_err.py         # ERR-based scraper (ACTIVE - runs hourly)
+├── scraper_wikipedia.py   # Wikipedia scraper (ACTIVE - runs hourly)
+├── scraper_err.py         # ERR-based scraper (BACKUP - Estonian source)
 ├── scraper.py             # Old Olympics.com scraper (DEPRECATED - blocked)
 ├── requirements.txt       # Python dependencies
 ├── .github/workflows/
@@ -124,20 +125,22 @@ Olympics/
 
 ## Automated Updates
 
-### Data Source: ERR (Estonian Public Broadcasting)
-- **Primary**: ERR RSS Feed - https://sport.err.ee/rss
-- **Secondary**: ERR Olympics Page - https://sport.err.ee/k/om2026
-- **Reason**: Olympics.com blocks automated scraping (403 Forbidden)
+### Data Source: Wikipedia
+- **Primary**: Wikipedia - Estonia at the 2026 Winter Olympics
+- **URL**: https://en.wikipedia.org/wiki/Estonia_at_the_2026_Winter_Olympics
+- **Reason**: Comprehensive, reliable, community-maintained source with official results
 
 ### What Auto-Updates
-✅ **Medal Detection** - Monitors ERR RSS feed every 1 hour
-- Scans ~39 Olympics articles in RSS feed
-- Parses ~25 Estonian athlete items from Olympics page
-- Detects Estonian medal wins from article headlines
-- Updates medal counts automatically
+✅ **Medal Detection** - Monitors Wikipedia every 1 hour
+- Parses infobox for official medal counts
+- Scans medal tables for Estonia's tallies
+- Updates medal counts automatically when changed
+- Most reliable source for official Olympic results
 
 ⚠️ **Result Detection** (Semi-Automatic)
-- Identifies athlete placements from headlines (e.g., "28th place")
+- Extracts athlete data from competitor tables
+- Identifies results from sport-specific sections
+- Detects medal winners from table styling
 - Logs results to GitHub Actions workflow
 - Requires manual verification and data.json update
 
@@ -151,26 +154,24 @@ Olympics/
 - **Schedule**: Runs every 1 hour via cron: `0 * * * *`
 - **Manual trigger**: Available via Actions tab
 - **Process**:
-  1. Runs `scraper_err.py`
-  2. Fetches ERR RSS feed (39+ Olympics articles)
-  3. Parses ERR Olympics page (25+ Estonian items)
-  4. Scans for Estonian athlete names and keywords
-  5. Detects medal wins and result placements
-  6. Updates data.json if medals found
+  1. Runs `scraper_wikipedia.py`
+  2. Fetches Wikipedia page content
+  3. Parses infobox for medal counts
+  4. Extracts competitor tables and results sections
+  5. Identifies athletes, sports, results, and medals
+  6. Updates data.json if medals changed
   7. Commits changes
   8. GitHub Pages auto-deploys (1-2 minutes)
 
 ### Scraper Behavior
-- **Script**: `scraper_err.py` (active)
-- **URLs**:
-  - RSS Feed: https://sport.err.ee/rss
-  - Olympics Page: https://sport.err.ee/k/om2026
+- **Script**: `scraper_wikipedia.py` (active)
+- **URL**: https://en.wikipedia.org/wiki/Estonia_at_the_2026_Winter_Olympics
 - **Strategy**:
-  - Dual data source (RSS + Olympics page)
-  - Estonian athlete name detection (21 names + keywords)
-  - Medal keyword matching (Estonian + English)
-  - Result pattern extraction (placement, DNF, etc.)
-- **Reliability**: ERR is accessible and Estonian-focused
+  - Infobox parsing for official medal counts
+  - Table parsing for competitor and results data
+  - CSS styling detection for medal identification
+  - Conservative data merging (preserves manual updates)
+- **Reliability**: Wikipedia is highly reliable for Olympic results
 - **Fallback**: Preserves existing data if fetching fails
 
 ## How to Update Data Manually
@@ -405,44 +406,45 @@ Already in `.gitignore`:
 - `__pycache__/` - Python cache
 - `*.pyc` - Python compiled files
 
-## Recent Updates (Feb 11, 2026)
+## Recent Updates (Feb 12, 2026)
 
 ### Major Changes
-1. **Switched to ERR Data Source**
-   - Olympics.com blocked automated scraping (403 Forbidden)
-   - Now using ERR (Estonian Public Broadcasting) RSS feed + Olympics page
-   - More reliable and Estonian-focused coverage
+1. **Switched to Wikipedia as Primary Data Source**
+   - Most comprehensive and reliable source for Olympic results
+   - Community-maintained with official data
+   - Better structured tables for automated parsing
+   - Created `scraper_wikipedia.py` for Wikipedia integration
 
-2. **Increased Scraper Frequency**
-   - Changed from every 3 hours → every 1 hour
-   - Faster updates during competitions
-   - Better chance of catching results quickly
+2. **Hourly Updates Maintained**
+   - Runs every 1 hour for fast updates
+   - Parses Wikipedia infobox and competitor tables
+   - Automatic medal count detection
+   - Logs athlete results for manual review
 
-3. **Enhanced Scraper (scraper_err.py)**
-   - Dual data source: RSS feed (39 articles) + Olympics page (25 items)
-   - Estonian athlete name detection (21 names + keywords)
-   - Medal win detection (Estonian + English keywords)
-   - Result placement extraction
-   - Logs findings to GitHub Actions for review
+3. **Enhanced Data Extraction**
+   - Infobox parsing for official medal tallies
+   - Competitor table parsing for athlete information
+   - Sport-specific section parsing for detailed results
+   - Medal detection via CSS styling analysis
 
-4. **UI Improvements**
-   - Blue fade overlay behind logo reduced from 150px to 75px
-   - Less obtrusive scroll effect
-   - Logo shrinks on scroll for better visibility
+4. **Backup Data Source**
+   - Kept `scraper_err.py` as backup Estonian source
+   - Wikipedia as primary, ERR as fallback option
+   - Multiple data source strategy for reliability
 
 ### Current Status
 - **Medals**: 0 gold, 0 silver, 0 bronze
 - **Completed Events**: 5 (1 curling + 4 biathlon)
 - **Upcoming Events**: 19 athletes across multiple sports
-- **Automation**: Working via ERR, running hourly
-- **Data Sources**: ERR RSS + ERR Olympics page
-- **Last Manual Update**: Feb 11, 2026 (biathlon results)
+- **Automation**: Working via Wikipedia, running hourly
+- **Data Sources**: Wikipedia (primary), ERR (backup)
+- **Last Update**: Feb 12, 2026 (switched to Wikipedia)
 
 ### Known Issues Resolved
-✅ Olympics.com blocking → Switched to ERR
-✅ Slow updates (3 hours) → Now 1 hour
-✅ No Olympics page parsing → Added dual source
-✅ Large fade overlay → Reduced 50%
+✅ Olympics.com blocking → Switched to Wikipedia
+✅ ERR limited coverage → Wikipedia has comprehensive data
+✅ Manual athlete tracking → Wikipedia tables provide structure
+✅ Inconsistent updates → Wikipedia updated by community
 
 ## End of Olympics (After Feb 22, 2026)
 
@@ -460,8 +462,8 @@ Edit `.github/workflows/update-results.yml`:
 
 ---
 
-**Last Updated**: February 11, 2026
+**Last Updated**: February 12, 2026
 **Status**: Active - Olympics in progress
-**Data Source**: ERR (Estonian Public Broadcasting)
-**Automation**: Hourly updates via scraper_err.py
+**Data Source**: Wikipedia (Estonia at the 2026 Winter Olympics)
+**Automation**: Hourly updates via scraper_wikipedia.py
 **Next Review**: After February 22, 2026

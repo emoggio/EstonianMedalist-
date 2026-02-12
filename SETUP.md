@@ -91,8 +91,9 @@ If you want to update data manually instead of waiting for the scraper:
 ## Schedule
 
 The scraper runs:
-- ⏰ Every 3 hours automatically
+- ⏰ Every 1 hour automatically
 - 🔄 Can be triggered manually from Actions tab
 - 📊 Only commits if data actually changed
+- 📖 Uses Wikipedia as primary data source
 
 Enjoy tracking Estonia's Olympic journey! 🇪🇪 🏔️

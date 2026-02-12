@@ -14,20 +14,20 @@ A minimal, mobile-friendly website to track Estonia's performance at the Cortina
 
 ## Automated Updates
 
-✅ **Now Using ERR (Estonian Public Broadcasting) as Data Source**
+✅ **Now Using Wikipedia as Primary Data Source**
 
-The scraper now uses ERR's RSS feed and Olympics coverage instead of Olympics.com, providing reliable automatic updates!
+The scraper uses Wikipedia's Estonia at the 2026 Winter Olympics page as the main data source, providing reliable and comprehensive updates!
 
 ### What Gets Auto-Updated
 
-✅ **Medal Detection** - Automatically monitors ERR's RSS feed for Estonian medal wins
-- Scraper runs every 3 hours checking ERR's sports RSS feed
-- Detects medal mentions in Estonian Olympics articles
-- Updates when Estonia wins medals
+✅ **Medal Detection** - Automatically monitors Wikipedia for Estonian medal wins
+- Scraper runs every 1 hour checking Wikipedia's infobox and medal tables
+- Updates medal counts automatically when Estonia wins
+- Most reliable source for official medal tallies
 
-⚠️ **Semi-Automated Athlete Results** - Scraper detects results in headlines
-- Identifies competition results from ERR articles
-- Prints found results to workflow logs
+⚠️ **Semi-Automated Athlete Results** - Scraper detects results from Wikipedia tables
+- Parses competitor tables and results sections
+- Extracts placements and medal information
 - Requires manual review for accuracy
 
 ### What Needs Manual Updates
@@ -37,21 +37,22 @@ The scraper now uses ERR's RSS feed and Olympics coverage instead of Olympics.co
 - Adding specific competition results and placements
 - Updating event schedules if changed
 
-**Data Source**: [ERR Sport](https://sport.err.ee/k/om2026) - Estonian Public Broadcasting's official Olympics coverage with RSS feed access.
+**Data Source**: [Wikipedia - Estonia at the 2026 Winter Olympics](https://en.wikipedia.org/wiki/Estonia_at_the_2026_Winter_Olympics) - Comprehensive, community-maintained coverage with official results.
 
 ### How It Works
 
 1. **GitHub Actions Workflow** (`.github/workflows/update-results.yml`) runs every 1 hour
-2. **ERR RSS Scraper** (`scraper_err.py`) fetches ERR's sports RSS feed (https://sport.err.ee/rss)
-3. **ERR Olympics Page Parser**: Also parses https://sport.err.ee/k/om2026 for additional coverage
-4. **Smart Detection**: Scans ~39 RSS articles + ~25 Olympics page items for Estonian results
-5. **Medal Updates**: Automatically updates medal counts when Estonia wins
-6. **Auto-commit**: If medals change, the bot commits to your repository
-7. **GitHub Pages**: Your site automatically updates with the latest data
+2. **Wikipedia Scraper** (`scraper_wikipedia.py`) fetches Wikipedia's Estonia Olympics page
+3. **Infobox Parser**: Extracts official medal counts from Wikipedia's infobox
+4. **Table Parser**: Parses competitor tables and results sections for athlete data
+5. **Smart Detection**: Identifies athletes, sports, results, and medal winners
+6. **Medal Updates**: Automatically updates medal counts when Estonia wins
+7. **Auto-commit**: If medals change, the bot commits to your repository
+8. **GitHub Pages**: Your site automatically updates with the latest data
 
-**Data Source**: ERR (Eesti Rahvusringhääling) - Estonia's national public broadcasting company with comprehensive Olympics coverage.
+**Data Source**: Wikipedia - Community-maintained, comprehensive coverage with official Olympic results.
 
-**Update Frequency**: Every hour (60 checks per day for rapid results)
+**Update Frequency**: Every hour (24 checks per day for reliable updates)
 
 ### Manual Trigger
 
