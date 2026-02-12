@@ -136,6 +136,31 @@
       "name": "Martin Himma",
       "sport": "Cross-Country Skiing - Men's 50km Classic",
       "datetime": "Feb 21, 2026 - TBD"
+    },
+    {
+      "name": "Aleksandr Selevko",
+      "sport": "Figure Skating - Men's Singles",
+      "datetime": "TBD"
+    },
+    {
+      "name": "Niina Petrõkina",
+      "sport": "Figure Skating - Women's Singles",
+      "datetime": "TBD"
+    },
+    {
+      "name": "Marten Liiv",
+      "sport": "Speed Skating - Men's 500m & 1000m",
+      "datetime": "TBD"
+    },
+    {
+      "name": "Artti Aigro",
+      "sport": "Ski Jumping - Men's Normal Hill & Large Hill",
+      "datetime": "TBD"
+    },
+    {
+      "name": "Kaimar Vagul",
+      "sport": "Ski Jumping - Men's Super Team Large Hill",
+      "datetime": "TBD"
     }
   ]
 }
