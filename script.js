@@ -19,8 +19,12 @@ function shouldShowSnowflakes(medalCount) {
 // Load and display Olympic data
 async function loadData() {
     try {
-        const response = await fetch('data.json');
+        // Add timestamp to prevent caching
+        const timestamp = Date.now();
+        console.log('Loading data.json with timestamp:', timestamp);
+        const response = await fetch('data.json?t=' + timestamp);
         const data = await response.json();
+        console.log('Data loaded - Completed:', data.completed.length, 'Upcoming:', data.upcoming.length);
 
         const currentTotal = data.medals.gold + data.medals.silver + data.medals.bronze;
 
@@ -251,7 +255,7 @@ document.addEventListener('DOMContentLoaded', () => {
     window.addEventListener('scroll', handleScroll, { passive: true });
 
     // Check on initial load if we have medals OR if it's the last day
-    fetch('data.json')
+    fetch('data.json?t=' + Date.now())
         .then(res => res.json())
         .then(data => {
             const total = data.medals.gold + data.medals.silver + data.medals.bronze;
