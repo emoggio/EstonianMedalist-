@@ -25,6 +25,17 @@ desktop.ini
 
 # Local testing
 test_output.json
+check_all_athletes.py
+comprehensive_wiki_scraper.py
+data_backup.json
+data_test.txt
+download_wiki.py
+extract_results.py
+scraper_output.txt
+test_wiki_parse.py
+wikipedia_athletes.json
+wikipedia_page.html
+nul
 
 # Claude Code
 .claude/
