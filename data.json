@@ -79,33 +79,33 @@
       "name": "Mariel Merlii Pulles",
       "sport": "Cross-Country Skiing - Women's Sprint",
       "result": "40th place in qualification (time: 3:52.44), did not advance"
+    },
+    {
+      "name": "Susan Külm",
+      "sport": "Biathlon - Women's 7.5km Sprint",
+      "result": "28th place (time: 44:43.1, 1 missed shot: 0+0+0+1)"
+    },
+    {
+      "name": "Mark-Markos Kehva",
+      "sport": "Biathlon - Men's 20km Individual",
+      "result": "47th place (time: 58:09.3, 1 missed shot: 0+0+0+1)"
+    },
+    {
+      "name": "Karl Sebastian Dremljuga",
+      "sport": "Cross-Country Skiing - Men's Sprint",
+      "result": "59th place in qualification (time: 3:29.60), did not advance"
+    },
+    {
+      "name": "Teesi Tuul",
+      "sport": "Cross-Country Skiing - Women's Sprint",
+      "result": "54th place in qualification (time: 4:03.73), did not advance"
     }
   ],
   "upcoming": [
     {
-      "name": "Susan Külm",
-      "sport": "Biathlon - Women's 7.5km Sprint",
-      "datetime": "Feb 14, 2026 - 2:45 PM CET"
-    },
-    {
       "name": "Tuuli Tomingas",
       "sport": "Biathlon - Women's Relay",
       "datetime": "Feb 18, 2026 - 2:45 PM CET"
-    },
-    {
-      "name": "Mark-Markos Kehva",
-      "sport": "Biathlon - Men's Relay",
-      "datetime": "Feb 17, 2026 - 2:30 PM CET"
-    },
-    {
-      "name": "Hanna Gret Teder",
-      "sport": "Alpine Skiing - Women's Super G",
-      "datetime": "Feb 12, 2026 - 11:30 AM CET"
-    },
-    {
-      "name": "Tormis Laine",
-      "sport": "Alpine Skiing - Men's Downhill",
-      "datetime": "Feb 7, 2026 - 10:30 AM CET"
     },
     {
       "name": "Kelly Sildaru",
@@ -113,29 +113,14 @@
       "datetime": "Feb 19, 2026 - 6:30 PM CET"
     },
     {
-      "name": "Grete-Mia Meentalo",
-      "sport": "Freestyle Skiing - Women's Slopestyle",
-      "datetime": "Feb 7, 2026 - TBD"
-    },
-    {
       "name": "Henry Sildaru",
       "sport": "Freestyle Skiing - Men's Halfpipe",
       "datetime": "Feb 20, 2026 - TBD"
     },
     {
-      "name": "Teesi Tuul",
-      "sport": "Cross-Country Skiing - Women's Relay",
-      "datetime": "Feb 14, 2026 - TBD"
-    },
-    {
       "name": "Teiloora Ojaste",
       "sport": "Cross-Country Skiing - Women's 50km Classic",
       "datetime": "Feb 22, 2026 - TBD"
-    },
-    {
-      "name": "Karl Sebastian Dremljuga",
-      "sport": "Cross-Country Skiing - Men's 10km Freestyle",
-      "datetime": "Feb 13, 2026 - TBD"
     },
     {
       "name": "Martin Himma",
