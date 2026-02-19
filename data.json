@@ -283,6 +283,11 @@
       "datetime": "Feb 19, 2026 - 3:30 PM CET"
     },
     {
+      "name": "Niina Petrõkina",
+      "sport": "Figure Skating - Women's Singles (qualified for free skating, currently 10th after short program: 69.63)",
+      "datetime": "Feb 19, 2026 - 6:00 PM CET"
+    },
+    {
       "name": "Kelly Sildaru",
       "sport": "Freestyle Skiing - Women's Halfpipe",
       "datetime": "Feb 19, 2026 - 6:30 PM CET"
@@ -298,11 +303,6 @@
       "datetime": "Feb 20, 2026 - 9:30 AM CET"
     },
     {
-      "name": "Teiloora Ojaste",
-      "sport": "Cross-Country Skiing - Women's 50km Classic",
-      "datetime": "Feb 22, 2026 - TBD"
-    },
-    {
       "name": "Susan Külm",
       "sport": "Biathlon - Women's 12.5km Mass Start",
       "datetime": "Feb 21, 2026 - 1:15 PM CET"
@@ -313,9 +313,9 @@
       "datetime": "Feb 21, 2026 - TBD"
     },
     {
-      "name": "Niina Petrõkina",
-      "sport": "Figure Skating - Women's Singles (qualified for free skating, currently 10th after short program: 69.63)",
-      "datetime": "Feb 19, 2026 - 6:00 PM CET"
+      "name": "Teiloora Ojaste",
+      "sport": "Cross-Country Skiing - Women's 50km Classic",
+      "datetime": "Feb 22, 2026 - TBD"
     }
   ]
 }
