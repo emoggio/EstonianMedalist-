@@ -99,6 +99,41 @@
       "name": "Teesi Tuul",
       "sport": "Cross-Country Skiing - Women's Sprint",
       "result": "54th place in qualification (time: 4:03.73), did not advance"
+    },
+    {
+      "name": "Aleksandr Selevko",
+      "sport": "Figure Skating - Men's Singles",
+      "result": "16th place (total: 236.82, short program: 82.02 [18th], free skating: 154.80 [16th])"
+    },
+    {
+      "name": "Marten Liiv",
+      "sport": "Speed Skating - Men's 1000m",
+      "result": "14th place (time: 1:09.06, +2.78)"
+    },
+    {
+      "name": "Marten Liiv",
+      "sport": "Speed Skating - Men's 500m",
+      "result": "18th place (time: 34.83, +1.06)"
+    },
+    {
+      "name": "Kaimar Vagul",
+      "sport": "Ski Jumping - Men's Normal Hill",
+      "result": "36th place (99.0 pts, jump: 119.5m)"
+    },
+    {
+      "name": "Kaimar Vagul",
+      "sport": "Ski Jumping - Men's Large Hill",
+      "result": "40th place (125.0 pts, jump: 112.4m)"
+    },
+    {
+      "name": "Artti Aigro",
+      "sport": "Ski Jumping - Men's Large Hill",
+      "result": "26th place (total: 236.1 pts, trial: 124.5 pts [24th], round 1: 122.8 pts [24th], round 2: 113.3 pts [27th])"
+    },
+    {
+      "name": "Kaimar Vagul & Artti Aigro",
+      "sport": "Ski Jumping - Men's Super Team Large Hill",
+      "result": "13th place (Estonia: 238.8 pts)"
     }
   ],
   "upcoming": [
@@ -106,6 +141,11 @@
       "name": "Tuuli Tomingas",
       "sport": "Biathlon - Women's Relay",
       "datetime": "Feb 18, 2026 - 2:45 PM CET"
+    },
+    {
+      "name": "Marten Liiv",
+      "sport": "Speed Skating - Men's 1500m",
+      "datetime": "Feb 19, 2026 - 3:30 PM CET"
     },
     {
       "name": "Kelly Sildaru",
@@ -128,29 +168,9 @@
       "datetime": "Feb 21, 2026 - TBD"
     },
     {
-      "name": "Aleksandr Selevko",
-      "sport": "Figure Skating - Men's Singles",
-      "datetime": "TBD"
-    },
-    {
       "name": "Niina Petrõkina",
-      "sport": "Figure Skating - Women's Singles",
-      "datetime": "TBD"
-    },
-    {
-      "name": "Marten Liiv",
-      "sport": "Speed Skating - Men's 500m & 1000m",
-      "datetime": "TBD"
-    },
-    {
-      "name": "Artti Aigro",
-      "sport": "Ski Jumping - Men's Normal Hill & Large Hill",
-      "datetime": "TBD"
-    },
-    {
-      "name": "Kaimar Vagul",
-      "sport": "Ski Jumping - Men's Super Team Large Hill",
-      "datetime": "TBD"
+      "sport": "Figure Skating - Women's Singles (qualified for free skating, currently 10th after short program: 69.63)",
+      "datetime": "Feb 19, 2026 - 6:00 PM CET"
     }
   ]
 }
