@@ -1,14 +1,14 @@
 // Track previous medal state for snowflake trigger
 let previousTotalMedals = 0;
 
-// Check if it's the last day of Olympics (Feb 22, 2026)
+// Check if it's the last day of Olympics (Feb 22, 2026) - activates at 1AM Rome time
 function isLastDayOfOlympics() {
+    // Target: 1AM Rome time on Feb 22, 2026 (which is 2026-02-22T00:00:00Z UTC)
+    const targetStart = new Date('2026-02-22T00:00:00Z'); // 1AM CET = midnight UTC
+    const targetEnd = new Date('2026-02-23T00:00:00Z');   // End of Feb 22 in Rome time
     const now = new Date();
-    const lastDay = new Date('2026-02-22');
 
-    return now.getFullYear() === lastDay.getFullYear() &&
-           now.getMonth() === lastDay.getMonth() &&
-           now.getDate() === lastDay.getDate();
+    return now >= targetStart && now < targetEnd;
 }
 
 // Check if snowflakes should be active
