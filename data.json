@@ -47,7 +47,7 @@
     },
     {
       "name": "Kristo Siimer",
-      "sport": "Biathlon - Men's 10km Sprint",
+      "sport": "Biathlon - Men's 20km Individual",
       "result": "58th place (time: 59:09.6, 3 missed shots: 1+1+1+0)"
     },
     {
@@ -134,14 +134,149 @@
       "name": "Kaimar Vagul & Artti Aigro",
       "sport": "Ski Jumping - Men's Super Team Large Hill",
       "result": "13th place (Estonia: 238.8 pts)"
+    },
+    {
+      "name": "Henry Sildaru",
+      "sport": "Freestyle Skiing - Men's Slopestyle",
+      "result": "21st place (best score: 43.05, run 1: 43.05 [16th], run 2: 21.70 [27th])"
+    },
+    {
+      "name": "Henry Sildaru",
+      "sport": "Freestyle Skiing - Men's Big Air",
+      "result": "22nd place (total: 122.00, run 1: 17.00, run 2: 42.00, run 3: 80.00)"
+    },
+    {
+      "name": "Teiloora Ojaste",
+      "sport": "Cross-Country Skiing - Women's 20km Skiathlon",
+      "result": "66th place (lapped)"
+    },
+    {
+      "name": "Teiloora Ojaste",
+      "sport": "Cross-Country Skiing - Women's Sprint Classic",
+      "result": "56th place in qualification (time: 4:06.40, +30.19), did not advance"
+    },
+    {
+      "name": "Martin Himma",
+      "sport": "Cross-Country Skiing - Men's Sprint Classic",
+      "result": "44th place in qualification (time: 3:23.64, +16.27), did not advance"
+    },
+    {
+      "name": "Martin Himma",
+      "sport": "Cross-Country Skiing - Men's 10km Interval Start Free",
+      "result": "36th place (time: 22:21.6, +1:45.4)"
+    },
+    {
+      "name": "Estonia Team (Martin Himma)",
+      "sport": "Cross-Country Skiing - Men's Team Sprint Free",
+      "result": "18th place in qualification (total: 6:05.36, +19.64, leg 1: 3:04.07 [37th], leg 2: 3:01.29 [33rd]), did not advance"
+    },
+    {
+      "name": "Keidy Kaasiku",
+      "sport": "Cross-Country Skiing - Women's 10km Interval Start Free",
+      "result": "37th place (time: 25:33.7, +2:44.5)"
+    },
+    {
+      "name": "Kaidy Kaasiku",
+      "sport": "Cross-Country Skiing - Women's 10km Interval Start Free",
+      "result": "43rd place (time: 25:56.3, +3:07.1)"
+    },
+    {
+      "name": "Mariel Merlii Pulles",
+      "sport": "Cross-Country Skiing - Women's 10km Interval Start Free",
+      "result": "50th place (time: 26:05.8, +3:16.6)"
+    },
+    {
+      "name": "Teesi Tuul",
+      "sport": "Cross-Country Skiing - Women's 10km Interval Start Free",
+      "result": "62nd place (time: 26:38.3, +3:49.1)"
+    },
+    {
+      "name": "Mai Brit Teder",
+      "sport": "Snowboard - Women's Snowboard Cross",
+      "result": "30th place (best time: 1:18.47, run 1: 1:18.10 [27th], run 2: 1:18.47 [10th])"
+    },
+    {
+      "name": "Alvar Johannes Alev",
+      "sport": "Cross-Country Skiing - Men's 10km Interval Start Free",
+      "result": "28th place (time: 22:10.2, +1:34.0)"
+    },
+    {
+      "name": "Rene Zahkna",
+      "sport": "Biathlon - Men's 10km Sprint",
+      "result": "44th place (time: 25:26.9, +2:33.8, 2 missed shots: 0+1+1)"
+    },
+    {
+      "name": "Darta Zunte",
+      "sport": "Skeleton - Women",
+      "result": "23rd place (time: 1:57.59, +3.11)"
+    },
+    {
+      "name": "Jakob Kulbin",
+      "sport": "Biathlon - Men's 10km Sprint",
+      "result": "74th place (time: 26:30.7, +3:37.6, 4 missed shots: 2+0+2)"
+    },
+    {
+      "name": "Mark-Markos Kehva",
+      "sport": "Biathlon - Men's 10km Sprint",
+      "result": "79th place (time: 26:43.7, +3:50.6, 6 missed shots: 2+1+3)"
+    },
+    {
+      "name": "Kristo Siimer",
+      "sport": "Biathlon - Men's 10km Sprint",
+      "result": "53rd place (time: 25:43.1, +2:50.0, 0 missed shots)"
+    },
+    {
+      "name": "Kristo Siimer",
+      "sport": "Biathlon - Men's 12.5km Pursuit",
+      "result": "44th place (time: 36:02.0, +4:50.1, 3 missed shots: 0+1+2+0)"
+    },
+    {
+      "name": "Rene Zahkna",
+      "sport": "Biathlon - Men's 12.5km Pursuit",
+      "result": "51st place (time: 36:54.1, +5:42.2, 6 missed shots: 2+1+1+2)"
+    },
+    {
+      "name": "Susan Külm",
+      "sport": "Biathlon - Women's 10km Pursuit",
+      "result": "22nd place (time: 32:49.7, +2:37.9, 2 missed shots: 1+0+1+0)"
+    },
+    {
+      "name": "Tuuli Tomingas",
+      "sport": "Biathlon - Women's 10km Pursuit",
+      "result": "DNF (did not finish, 6 missed shots: 2+4)"
+    },
+    {
+      "name": "Tormis Laine",
+      "sport": "Alpine Skiing - Men's Slalom",
+      "result": "39th after run 1, DNF (did not finish run 2)"
+    },
+    {
+      "name": "Kristjan Ilves",
+      "sport": "Nordic Combined - Individual Gundersen Large Hill/10km",
+      "result": "6th place (ski jumping: 137.0 pts, cross-country: 144.0 pts, +0:24) - Estonia's best Nordic Combined result!"
+    },
+    {
+      "name": "Ruubert Teder",
+      "sport": "Nordic Combined - Individual Gundersen Large Hill/10km",
+      "result": "33rd place (ski jumping: 118.0 pts, cross-country: 99.8 pts, +3:21)"
+    },
+    {
+      "name": "Estonia Team (Biathlon)",
+      "sport": "Biathlon - Men's 4x7.5km Relay",
+      "result": "13th place (time: 1:23:48.8, +3:53.6, 6 missed shots total)"
+    },
+    {
+      "name": "Estonia Team (Biathlon)",
+      "sport": "Biathlon - Women's 4x6km Relay",
+      "result": "14th place (time: 1:15:12.3, +4:49.6, 12 missed shots total)"
+    },
+    {
+      "name": "Estonia Team (Cross-Country)",
+      "sport": "Cross-Country Skiing - Women's Team Sprint Free",
+      "result": "12th place (time: 21:34.95, +1:04.96)"
     }
   ],
   "upcoming": [
-    {
-      "name": "Tuuli Tomingas",
-      "sport": "Biathlon - Women's Relay",
-      "datetime": "Feb 18, 2026 - 2:45 PM CET"
-    },
     {
       "name": "Marten Liiv",
       "sport": "Speed Skating - Men's 1500m",
@@ -153,14 +288,24 @@
       "datetime": "Feb 19, 2026 - 6:30 PM CET"
     },
     {
+      "name": "Grete-Mia Meentalo",
+      "sport": "Freestyle Skiing - Women's Halfpipe",
+      "datetime": "Feb 19, 2026 - 6:30 PM CET"
+    },
+    {
       "name": "Henry Sildaru",
       "sport": "Freestyle Skiing - Men's Halfpipe",
-      "datetime": "Feb 20, 2026 - TBD"
+      "datetime": "Feb 20, 2026 - 9:30 AM CET"
     },
     {
       "name": "Teiloora Ojaste",
       "sport": "Cross-Country Skiing - Women's 50km Classic",
       "datetime": "Feb 22, 2026 - TBD"
+    },
+    {
+      "name": "Susan Külm",
+      "sport": "Biathlon - Women's 12.5km Mass Start",
+      "datetime": "Feb 21, 2026 - 1:15 PM CET"
     },
     {
       "name": "Martin Himma",
