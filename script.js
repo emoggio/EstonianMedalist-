@@ -129,21 +129,41 @@ function createSnowflake() {
     // Random starting position
     snowflake.style.left = Math.random() * 100 + 'vw';
 
-    // Random size
-    const size = Math.random() * 1 + 0.5; // 0.5 to 1.5
+    // Random size - slightly bigger (0.7 to 2.0 instead of 0.5 to 1.5)
+    const size = Math.random() * 1.3 + 0.7; // 0.7 to 2.0
     snowflake.style.fontSize = size + 'rem';
 
     // Random animation duration
     const duration = Math.random() * 3 + 4; // 4 to 7 seconds
     snowflake.style.animationDuration = duration + 's';
 
-    // Add random color tint for sparkle effect
+    // Add random color tint inspired by Estonian flag (blue, black, white) but still snowy
     const colors = [
-        'rgba(255, 255, 255, 0.95)',           // Pure white
-        'rgba(173, 216, 230, 0.95)',           // Light blue
-        'rgba(135, 206, 250, 0.95)',           // Sky blue
-        'rgba(224, 255, 255, 0.95)',           // Light cyan
-        'rgba(240, 248, 255, 0.95)'            // Alice blue
+        '#FFFFFF',                             // Pure white (Estonian flag white)
+        '#F8FAFF',                             // Cool white
+        '#F0F8FF',                             // Alice blue
+        '#E6F2FF',                             // Very light blue
+        '#D4E8FF',                             // Light blue
+        '#C2DEFF',                             // Soft blue
+        '#B0D4FF',                             // Sky blue
+        '#9ECAFF',                             // Light sky blue
+        '#8CC0FF',                             // Brighter blue
+        '#7AB6FF',                             // Clear blue
+        '#68ACFF',                             // Vivid light blue
+        '#56A2FF',                             // Medium blue
+        '#4498FF',                             // Bright blue
+        '#328EFF',                             // Strong blue
+        '#2084FF',                             // Rich blue
+        '#0072CE',                             // Estonian flag blue (official)
+        '#0066BB',                             // Deep Estonian blue
+        '#E8EFF5',                             // Very pale blue-gray
+        '#D6E0EB',                             // Pale blue-gray
+        '#C4D1E0',                             // Light gray-blue
+        '#B2C2D6',                             // Medium gray-blue
+        '#A0B3CC',                             // Cool gray-blue
+        '#8EA4C2',                             // Slate blue-gray
+        '#7C95B8',                             // Deep gray-blue
+        '#556B8B'                              // Dark blue-gray (subtle black hint)
     ];
     const randomColor = colors[Math.floor(Math.random() * colors.length)];
     snowflake.style.color = randomColor;

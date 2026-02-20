@@ -189,16 +189,16 @@ header::before {
 .snowflake {
     position: fixed;
     top: -10px;
-    color: var(--cortina-white);
+    /* color set dynamically in JavaScript for Estonian flag colors */
     font-size: 1.8rem;
-    opacity: 0.95;
+    opacity: 1;
     pointer-events: none;
     z-index: 9999;
     animation: fall linear forwards, sparkle 3s ease-in-out infinite;
     text-shadow:
-        0 0 8px rgba(255, 255, 255, 0.9),
-        0 0 15px rgba(173, 216, 230, 0.6),
-        0 0 20px rgba(135, 206, 250, 0.4);
+        0 0 5px currentColor,
+        0 0 10px rgba(255, 255, 255, 0.5);
+    filter: drop-shadow(0 0 3px currentColor);
 }
 
 @keyframes sparkle {
