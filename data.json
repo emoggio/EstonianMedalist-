@@ -12,21 +12,6 @@
       "medal": "silver"
     },
     {
-      "name": "Niina Petrõkina",
-      "sport": "Figure Skating - Women's Singles",
-      "result": "7th place (two-time European champion's Olympic debut)"
-    },
-    {
-      "name": "Kelly Sildaru",
-      "sport": "Freestyle Skiing - Women's Halfpipe",
-      "result": "13th place in qualification, did not advance to final"
-    },
-    {
-      "name": "Grete-Mia Meentalo",
-      "sport": "Freestyle Skiing - Women's Halfpipe",
-      "result": "17th place in qualification (score: 61.50, fell on second run), did not advance to final"
-    },
-    {
       "name": "Kristjan Ilves",
       "sport": "Nordic Combined - Individual Normal Hill/10km",
       "result": "6th place (1st in ski jumping: 99.0m, 132.6pts; 8th in cross-country: 30:40.5) - Estonia's best Nordic Combined result!"
@@ -37,6 +22,11 @@
       "result": "6th place (ski jumping: 137.0 pts, cross-country: 144.0 pts, +0:24) - Estonia's best Nordic Combined result!"
     },
     {
+      "name": "Niina Petrõkina",
+      "sport": "Figure Skating - Women's Singles",
+      "result": "7th place (two-time European champion's Olympic debut)"
+    },
+    {
       "name": "Marie Kaldvee & Harri Lill",
       "sport": "Curling - Mixed Doubles",
       "result": "8th place (2 wins, 4 losses)"
@@ -45,6 +35,11 @@
       "name": "Estonia Team (Cross-Country)",
       "sport": "Cross-Country Skiing - Women's Team Sprint Free",
       "result": "12th place (time: 21:34.95, +1:04.96)"
+    },
+    {
+      "name": "Kelly Sildaru",
+      "sport": "Freestyle Skiing - Women's Halfpipe",
+      "result": "13th place in qualification, did not advance to final"
     },
     {
       "name": "Kaimar Vagul & Artti Aigro",
@@ -77,6 +72,11 @@
       "result": "16th place (total: 236.82, short program: 82.02 [18th], free skating: 154.80 [16th])"
     },
     {
+      "name": "Grete-Mia Meentalo",
+      "sport": "Freestyle Skiing - Women's Halfpipe",
+      "result": "17th place in qualification (score: 61.50, fell on second run), did not advance to final"
+    },
+    {
       "name": "Marten Liiv",
       "sport": "Speed Skating - Men's 500m",
       "result": "18th place (time: 34.83, +1.06)"
@@ -95,11 +95,6 @@
       "name": "Henry Sildaru",
       "sport": "Freestyle Skiing - Men's Big Air",
       "result": "22nd place (total: 122.00, run 1: 17.00, run 2: 42.00, run 3: 80.00)"
-    },
-    {
-      "name": "Marten Liiv",
-      "sport": "Speed Skating - Men's 1500m",
-      "result": "Competed (Feb 19) - specific placement not available in top results"
     },
     {
       "name": "Susan Külm",
@@ -295,6 +290,11 @@
       "name": "Jakob Kulbin",
       "sport": "Biathlon - Men's 20km Individual",
       "result": "87th place (time: 1:05:17.3, 7 missed shots: 2+2+3+0)"
+    },
+    {
+      "name": "Marten Liiv",
+      "sport": "Speed Skating - Men's 1500m",
+      "result": "Competed (Feb 19) - specific placement not available in top results"
     },
     {
       "name": "Tuuli Tomingas",
